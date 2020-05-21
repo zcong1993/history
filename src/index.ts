@@ -4,10 +4,8 @@ const ONE_YEAR = 86400 * 365
 const ONE_MONTH = 86400 * 30
 
 const normalizeRedisValue = (value: any): ValueType => {
-  let v: ValueType
-
   if (['string', 'number'].includes(typeof value) || Buffer.isBuffer(value)) {
-    return v
+    return value as ValueType
   }
 
   return JSON.stringify(value)
