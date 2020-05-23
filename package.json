@@ -37,6 +37,9 @@
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.2"
   },
+  "peerDependencies": {
+    "ioredis": "^4.16.3"
+  },
   "jest": {
     "testEnvironment": "node",
     "transform": {

@@ -51,7 +51,7 @@ export class LengthLimitedHistory<T = any> implements History<T> {
   private async remove(key: string) {
     const count = await this.redis.zcount(key, '-inf', '+inf')
     if (count > this.limit) {
-      await this.redis.zremrangebyrank(key, 0, count - this.limit)
+      await this.redis.zremrangebyrank(key, 0, count - this.limit - 1)
     }
   }
 }
