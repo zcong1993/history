@@ -22,7 +22,7 @@ export class LengthLimitedHistory<T = any> implements History<T> {
     private readonly limit: number = 10
   ) {}
 
-  async add(key: string, data: T) {
+  async add(key: string, data: T): Promise<void> {
     const now = new Date().getTime()
 
     await this.redis
@@ -62,7 +62,7 @@ export class DatedHistory<T = any> implements History<T> {
     private readonly durationInSeconds: number = ONE_MONTH
   ) {}
 
-  async add(key: string, data: T) {
+  async add(key: string, data: T): Promise<void> {
     const now = new Date().getTime()
     const outdated = now - this.durationInSeconds * 1000
 
